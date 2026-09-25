@@ -15,7 +15,7 @@ class Mapa:
     def generar_mapa(self):
         # aca se elige y generan los mapas distintos
         if self.tipo_mapa == 1:
-            # alta densidad
+            # densidad alta
             mapa_1 = np.array([
                 [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                 [1, 0, 0, 1, 0, 0, 0, 1, 0, 3, 1],
@@ -27,11 +27,29 @@ class Mapa:
             ])
             return mapa_1
         elif self.tipo_mapa == 2:
-            # media densidad
-            pass
+            # densidad mediana
+            mapa_2 = np.array([
+                [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                [1, 0, 0, 0, 1, 0, 0, 0, 0, 3, 1],
+                [1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1],
+                [1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1],
+                [1, 0, 1, 1, 1, 2, 1, 0, 0, 0, 1], # fuego inicial en el centro
+                [1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1],
+                [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+            ])
+            return mapa_2
         elif self.tipo_mapa == 3:
-            # baja densidad
-            pass
+            # densidad baja
+            mapa_3 = np.array([
+                [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                [1, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1],
+                [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+                [1, 0, 0, 0, 1, 2, 0, 0, 0, 0, 1], # fuego en un pilar central
+                [1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
+                [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+                [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+            ])
+            return mapa_3
             
     def propagar_fuego(self):
         # pasa un turno mas
@@ -68,3 +86,4 @@ class Mapa:
         costo_total = costo_base + (cantidad_personas ** 2) 
         
         return costo_total
+
